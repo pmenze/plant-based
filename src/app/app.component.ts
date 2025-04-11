@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { WeeklyDiaryComponent } from './components/weekly-diary/weekly-diary.component';
+import { TranslationService } from './services/translation.service';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [
+    CommonModule,
+    WeeklyDiaryComponent
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'plant-diary';
+  constructor(private t: TranslationService) {
+    this.title = this.t.get('APP_TITLE');
+  }
+  title: string;
 }

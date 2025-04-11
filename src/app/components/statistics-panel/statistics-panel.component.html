@@ -1,0 +1,19 @@
+<div class="statistics-panel">
+  <div class="header">
+    <h2>{{ t.get('WEEKLY_STATISTICS') }}</h2>
+    <button mat-icon-button (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+
+  <div class="chart">
+    <div class="bars">
+      <div class="bar-container" *ngFor="let stat of data.weeklyStats">
+        <div class="bar" [style.height]="getBarHeight(stat.entriesCount)">
+          <span class="count">{{ stat.entriesCount }}</span>
+        </div>
+        <span class="week-label">KW {{ stat.weekNumber }}</span>
+      </div>
+    </div>
+  </div>
+</div>

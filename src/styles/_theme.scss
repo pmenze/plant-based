@@ -1,0 +1,65 @@
+@use '@angular/material' as mat;
+
+$primary-palette: (
+
+  50: #e8f0e9,
+  100: #c6d9c8,
+  200: #a1c0a4,
+  300: #7ba680,
+  400: #5f9365,
+  500: #4a7856,
+  600: #43704f,
+  700: #3a6545,
+  800: #325b3c,
+  900: #22472b,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: white,
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+$accent-palette: (
+
+  50: #fdf4e7,
+  100: #fbe3c2,
+  200: #f8d199,
+  300: #f5be70,
+  400: #f3b052,
+  500: #f1a333,
+  600: #ef9b2e,
+  700: #ed9127,
+  800: #eb8820,
+  900: #e77714,
+  contrast: (
+    50: rgba(black, 0.87),
+    100: rgba(black, 0.87),
+    200: rgba(black, 0.87),
+    300: rgba(black, 0.87),
+    400: rgba(black, 0.87),
+    500: rgba(black, 0.87),
+    600: rgba(black, 0.87),
+    700: white,
+    800: white,
+    900: white,
+  )
+);
+
+$plant-diary-primary: mat.define-palette($primary-palette);
+$plant-diary-accent: mat.define-palette($accent-palette);
+
+$plant-diary-theme: mat.define-light-theme((
+  color: (
+    primary: $plant-diary-primary,
+    accent: $plant-diary-accent
+  ),
+  typography: mat.define-typography-config(),
+  density: 0
+));

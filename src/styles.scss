@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+@use '@angular/material' as mat;
+
+html, body { height: 100%; }
+body { 
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  color: #2c5530;
+  background-color: #f8f9f6;
+}
+
+// Custom Material theme colors
+.mat-mdc-raised-button.mat-primary {
+  --mdc-filled-button-container-color: #4a7856;
+  --mdc-filled-button-label-text-color: #ffffff;
+}
+
+.mat-mdc-button.mat-primary {
+  --mat-text-button-state-layer-color: #4a7856;
+  --mat-text-button-ripple-color: #4a7856;
+  color: #4a7856;
+}
+
+.mat-mdc-icon-button {
+  --mat-icon-button-state-layer-color: #4a7856;
+  --mat-icon-button-ripple-color: #4a7856;
+  color: #4a7856;
+}
+
+.mat-mdc-form-field {
+  --mdc-filled-text-field-focus-active-indicator-color: #4a7856;
+  --mdc-filled-text-field-hover-active-indicator-color: #4a7856;
+  --mdc-filled-text-field-focus-label-text-color: #4a7856;
+}
+
+.mat-mdc-form-field-focus-overlay {
+  background-color: rgba(74, 120, 86, 0.1);
+}
+
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+  color: #4a7856 !important;
+}
+
+.mat-mdc-card {
+  --mdc-elevated-card-container-color: rgba(255, 255, 255, 0.9);
+}

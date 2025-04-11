@@ -1,0 +1,50 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #f8f9f6;
+  position: relative;
+  overflow-x: hidden;
+  
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 75vw;
+    height: 100vh;
+    background-image: url('../assets/leaf-background.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: left center;
+    
+    @media (min-width: 768px) {
+      width: 33vw;
+    }
+  }
+  padding: 0.5rem;
+
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h1 {
+    color: #2c5530;
+    text-align: center;
+    font-size: 1.8rem;
+    
+    @media (min-width: 768px) {
+      font-size: 2.5rem;
+    }
+    margin: 1rem 0;
+    
+    @media (min-width: 768px) {
+      margin-bottom: 2rem;
+    }
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+}

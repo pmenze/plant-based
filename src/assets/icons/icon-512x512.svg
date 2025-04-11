@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+    <!-- Background circle -->
+    <circle cx="256" cy="256" r="256" fill="#4CAF50" />
+    
+    <!-- Leaf shape -->
+    <path d="
+      M 256 51.2
+      C 409.6 102.4, 460.8 307.2, 256 460.8
+      C 51.2 307.2, 102.4 102.4, 256 51.2
+      Z
+    " fill="#FFFFFF" opacity="0.9" />
+    
+    <!-- Leaf vein -->
+    <path d="
+      M 256 51.2
+      L 256 460.8
+    " stroke="#4CAF50" stroke-width="12.8" stroke-linecap="round" />
+    
+    <!-- Side veins -->
+    <path d="
+      M 256 153.6
+      L 332.8 179.2
+      
+      M 256 230.4
+      L 358.4 256
+      
+      M 256 307.2
+      L 332.8 332.8
+      
+      M 256 153.6
+      L 179.2 179.2
+      
+      M 256 230.4
+      L 153.6 256
+      
+      M 256 307.2
+      L 179.2 332.8
+    " stroke="#4CAF50" stroke-width="6.4" stroke-linecap="round" />
+  </svg>

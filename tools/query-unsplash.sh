@@ -1,0 +1,17 @@
+curl 'https://api.unsplash.com/search/photos?query=Himbeere&per_page=1&orientation=squarish' \
+  -H 'accept: */*' \
+  -H 'accept-language: de-DE,de;q=0.9,en-US;q=0.8,en;q=0.7' \
+  -H 'accept-version: v1' \
+  -H 'authorization: Client-ID Wyorvk1lvkJnA-lC24Oe_v4FqYXll5JsDqGEbweU3rU' \
+  -H 'cache-control: no-cache' \
+  -H 'origin: http://127.0.0.1:55432' \
+  -H 'pragma: no-cache' \
+  -H 'priority: u=1, i' \
+  -H 'referer: http://127.0.0.1:55432/' \
+  -H 'sec-ch-ua: "Chromium";v="134", "Not:A-Brand";v="24", "Google Chrome";v="134"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36'

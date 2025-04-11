@@ -1,0 +1,69 @@
+<div class="weekly-diary">
+  <button mat-fab class="stats-fab" (click)="openStatistics()" style="background-color: #4a7856; color: white;">
+    <mat-icon>bar_chart</mat-icon>
+  </button>
+
+  <div class="week-navigation">
+    <div class="week-info">
+      <h2>{{ t.get('WEEKLY_VIEW_TITLE') }}</h2>
+      <div class="date-navigation">
+        <button mat-icon-button (click)="navigateWeek(-1)" [attr.aria-label]="t.get('PREVIOUS_WEEK')">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <div class="date-info">
+          <p>{{ formatWeekRange() }}</p>
+          <p class="items-count">{{ getItemsCountText() }}</p>
+        </div>
+        <button mat-icon-button (click)="navigateWeek(1)" [attr.aria-label]="t.get('NEXT_WEEK')">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </div>
+      <button mat-button (click)="goToCurrentWeek()" [disabled]="isCurrentWeek()">
+        {{ t.get('CURRENT_WEEK') }}
+      </button>
+    </div>
+  </div>
+
+  <div class="food-entry-form">
+    <div class="input-container">
+      <label class="food-label">{{ t.get('ADD_FOOD_LABEL') }}</label>
+      <mat-form-field appearance="fill">
+        <input matInput
+               [(ngModel)]="newFoodName"
+               (input)="filterFoods($any($event).target.value)"
+               [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let food of filteredFoods" [value]="food" (click)="selectFood(food)">
+            {{ food }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+    <button mat-raised-button color="primary" (click)="addFood()" [disabled]="!newFoodName.trim()">
+      {{ t.get('ADD_FOOD_BUTTON') }}
+    </button>
+  </div>
+
+  <div class="food-list">
+    <mat-card *ngIf="!currentWeek.entries.length" class="empty-state">
+      <mat-card-content>
+        {{ t.get('EMPTY_STATE') }}
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card *ngIf="currentWeek.entries.length">
+      <mat-card-content>
+        <mat-list>
+          <mat-list-item *ngFor="let entry of currentWeek.entries">
+            <img matListItemAvatar [src]="entry.imageUrl || 'assets/placeholder-food.jpg'" [alt]="entry.name" class="food-image">
+            <div matListItemTitle>{{ entry.name }}</div>
+            <span matListItemLine>{{ t.get('ADDED_ON') }} {{ entry.date | date:'d. MMM y':'':'de' }}</span>
+            <button mat-icon-button color="warn" (click)="deleteEntry(entry)" matListItemMeta>
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

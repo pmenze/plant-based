@@ -1,0 +1,339 @@
+.weekly-diary {
+  position: relative;
+  width: auto;
+  margin: 0 auto; /* Center the component */
+  padding: 0.5rem;
+
+  .stats-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 800px;
+    padding: 1rem;
+  }
+
+  .week-navigation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+
+    @media (min-width: 768px) {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+
+      mat-list-item {
+        margin: 4px 0;
+        background: white;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+      }
+    }
+
+    .week-info {
+      text-align: center;
+      width: 100%;
+
+      h2 {
+        color: #2c5530;
+        margin: 0 0 1rem;
+        font-size: 1.4rem;
+
+        @media (min-width: 768px) {
+          font-size: 1.8rem;
+        }
+      }
+
+      mat-list-item {
+        margin: 4px 0;
+        background: white;
+        border-radius: 4px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+
+        div[matListItemTitle] {
+          font-size: 1rem;
+          margin-bottom: 4px;
+          color: rgba(0, 0, 0, 0.87);
+        }
+
+        span[matListItemLine] {
+          font-size: 0.875rem;
+          color: rgba(0, 0, 0, 0.6);
+        }
+
+        button[matListItemMeta] {
+          margin-left: 16px;
+        }
+      }
+
+      mat-list-item {
+        font-size: 0.9rem;
+
+        @media (min-width: 768px) {
+          font-size: 1rem;
+        }
+
+        .entry-title {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+
+          .delete-button {
+            opacity: 0.6;
+            transition: opacity 0.2s;
+            scale: 0.85;
+
+            &:hover {
+              opacity: 1;
+              color: #d32f2f;
+            }
+
+            mat-icon {
+              font-size: 20px;
+              width: 20px;
+              height: 20px;
+              line-height: 20px;
+            }
+          }
+        }
+      }
+
+      .date-navigation {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+
+        .date-info {
+          flex: 1;
+          max-width: 200px;
+          
+          p {
+            color: #4a7856;
+            margin: 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+
+            @media (min-width: 768px) {
+              font-size: 1rem;
+            }
+
+            &.items-count {
+              color: #666;
+              font-size: 0.85em;
+
+              @media (min-width: 768px) {
+                font-size: 0.9em;
+              }
+            }
+          }
+        }
+
+        button[mat-icon-button] {
+          color: #4a7856;
+        }
+      }
+
+      button[mat-button] {
+        margin-top: 0.25rem;
+        color: #2c5530;
+      }
+    }
+
+    button {
+      color: #2c5530;
+      margin-top: 0.5rem;
+    }
+
+    button[mat-icon-button] {
+      color: #4a7856;
+      background-color: rgba(44, 85, 48, 0.1);
+      &:hover {
+        background-color: rgba(44, 85, 48, 0.2);
+      }
+    }
+  }
+
+  h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 2rem;
+  }
+
+  .food-entry-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(76, 175, 80, 0.1);
+
+    @media (min-width: 768px) {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    .input-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      
+      .food-label {
+        font-size: 14px;
+        font-weight: 500;
+        color: #2c5530;
+        margin-left: 4px;
+      }
+      
+      mat-form-field {
+        width: 100%;
+  
+        ::ng-deep {
+          .mat-mdc-text-field-wrapper {
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+            border: 1px solid rgba(76, 175, 80, 0.2);
+          }
+  
+          .mat-mdc-form-field-focus-overlay {
+            background-color: rgba(76, 175, 80, 0.05);
+          }
+  
+          .mdc-text-field--focused .mat-mdc-text-field-wrapper {
+            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.15);
+            transform: translateY(-2px);
+            border-color: rgba(76, 175, 80, 0.4);
+          }
+  
+          .mat-mdc-form-field-infix {
+            padding: 8px 0;
+          }
+          
+          /* Remove the space for the floating label since we're using our own */
+          .mat-mdc-form-field-infix {
+            padding-top: 8px;
+            padding-bottom: 8px;
+            min-height: 40px;
+          }
+          
+          /* Remove extra padding at the bottom of the form field */
+          .mat-mdc-form-field-subscript-wrapper {
+            display: none;
+          }
+          
+          /* Increase the font size of the input text for better readability */
+          .mat-mdc-input-element {
+            font-size: 16px;
+            line-height: 24px;
+          }
+        }
+      }
+
+      @media (min-width: 768px) {
+        flex-grow: 1;
+      }
+    }
+
+    button {
+      width: 100%;
+      border-radius: 12px;
+      padding: 0 24px;
+      height: 48px;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 8px;
+
+      @media (min-width: 768px) {
+        width: auto;
+        margin-top: 22px; /* Align with input field accounting for the label */
+      }
+    }
+
+    button[mat-raised-button] {
+      background-color: #4a7856;
+      color: white;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      
+      &:hover:not(:disabled) {
+        background-color: #2c5530;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(44, 85, 48, 0.25);
+      }
+      
+      &[disabled] {
+        background-color: rgba(74, 120, 86, 0.5);
+      }
+    }
+  }
+
+  .food-list {
+    mat-card {
+      margin-bottom: 1rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      backdrop-filter: blur(5px);
+
+      &.empty-state {
+        text-align: center;
+        color: #4a7856;
+        color: #7f8c8d;
+        padding: 2rem;
+      }
+    }
+
+    mat-list-item {
+      margin-bottom: 0.5rem;
+
+      [matListItemTitle] {
+        font-weight: 500;
+        color: #2c3e50;
+      }
+
+      [matListItemLine] {
+        color: #7f8c8d;
+        font-size: 0.9rem;
+      }
+      
+      .food-image {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid rgba(76, 175, 80, 0.2);
+        margin-right: 16px;
+      }
+    }
+  }
+}

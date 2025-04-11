@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <path id="leaf" d="M15,2 Q30,0 40,10 Q50,20 45,35 Q40,50 25,48 Q10,46 5,31 Q0,16 15,2 Z" />
+  </defs>
+  <g fill="#4a785622">
+    <use href="#leaf" x="0" y="0" />
+    <use href="#leaf" transform="translate(50,50) rotate(180)" />
+    <use href="#leaf" transform="translate(0,50) rotate(270)" />
+    <use href="#leaf" transform="translate(50,0) rotate(90)" />
+  </g>
+</svg>
