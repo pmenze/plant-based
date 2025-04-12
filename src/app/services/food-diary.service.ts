@@ -85,7 +85,7 @@ export class FoodDiaryService {
     return stats;
   }
 
-  addFoodEntry(name: string, date: Date): void {
+  addFoodEntry(name: string, date: Date): boolean {
     const weekNumber = this.getWeekNumber(date);
     const year = date.getFullYear();
     
@@ -94,6 +94,19 @@ export class FoodDiaryService {
     const properCaseName = this.knownFoods.has(lowerCaseName) 
       ? this.knownFoods.get(lowerCaseName)
       : name;
+
+    // Check if this food item already exists for the current week
+    const foodAlreadyExistsThisWeek = this.foodEntries.some(entry => 
+      entry.name.toLowerCase() === lowerCaseName && 
+      entry.weekNumber === weekNumber && 
+      entry.year === year
+    );
+
+    // If the food already exists this week, don't add it again
+    if (foodAlreadyExistsThisWeek) {
+      console.log(`${properCaseName} already added this week`);
+      return false;
+    }
 
     // Create the entry with a unique ID
     const entry: FoodEntry = {
@@ -120,6 +133,8 @@ export class FoodDiaryService {
         this.saveToLocalStorage();
       }
     });
+    
+    return true;
   }
 
   private getWeekNumber(date: Date): number {

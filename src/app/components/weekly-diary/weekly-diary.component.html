@@ -57,7 +57,9 @@
           <mat-list-item *ngFor="let entry of currentWeek.entries">
             <img matListItemAvatar [src]="entry.imageUrl || 'assets/placeholder-food.jpg'" [alt]="entry.name" class="food-image">
             <div matListItemTitle>{{ entry.name }}</div>
-            <span matListItemLine>{{ t.get('ADDED_ON') }} {{ entry.date | date:'d. MMM y':'':'de' }}</span>
+            <span matListItemLine>
+              <span class="added-on-text">{{ t.get('ADDED_ON') }}</span> {{ entry.date | date:'d. MMM y':'':'de' }}
+            </span>
             <button mat-icon-button color="warn" (click)="deleteEntry(entry)" matListItemMeta>
               <mat-icon>delete</mat-icon>
             </button>

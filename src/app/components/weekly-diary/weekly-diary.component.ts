@@ -108,17 +108,16 @@ export class WeeklyDiaryComponent implements OnInit {
 
   addFood(): void {
     if (this.newFoodName.trim()) {
-      try {
-        this.foodDiaryService.addFoodEntry(this.newFoodName.trim(), this.selectedDate);
+      // The addFoodEntry method now returns a boolean indicating success
+      const success = this.foodDiaryService.addFoodEntry(this.newFoodName.trim(), this.selectedDate);
+      
+      if (success) {
+        // Food was added successfully
         this.newFoodName = '';
         this.loadKnownFoods();
-      } catch (error: unknown) {
-        if (error instanceof Error) {
-          alert(error.message === 'This food has already been logged for this week' ? 
-            this.t.get('DUPLICATE_FOOD_ERROR') : error.message);
-        } else {
-          alert(this.t.get('UNKNOWN_ERROR'));
-        }
+      } else {
+        // Food already exists this week
+        alert(this.t.get('DUPLICATE_FOOD_ERROR') || 'This food has already been added this week');
       }
     }
   }

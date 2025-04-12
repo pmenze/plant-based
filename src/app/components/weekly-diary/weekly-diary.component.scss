@@ -324,6 +324,12 @@
       [matListItemLine] {
         color: #7f8c8d;
         font-size: 0.9rem;
+        
+        .added-on-text {
+          @media (max-width: 767px) {
+            display: none;
+          }
+        }
       }
       
       .food-image {
